@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Shipment Tracker" max_length="40" name="x_286313_beyondmov_shipment_tracker" type="collection">
+        <element label="Current Location" mandatory="true" max_length="256" name="current_location" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" display="true" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Shipment Order" mandatory="true" max_length="32" name="shipment_order" reference="x_286313_beyondmov_shipment_order" type="reference"/>
+        <element label="Tracker timestamp" mandatory="true" max_length="40" name="tracker_timestamp" type="glide_date_time"/>
+        <index name="index">
+            <element name="shipment_order"/>
+        </index>
+    </element>
+</database>

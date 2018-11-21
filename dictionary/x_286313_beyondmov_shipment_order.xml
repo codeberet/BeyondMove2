@@ -14,7 +14,7 @@
         <element label="Delivery Date" mandatory="true" max_length="40" name="delivery_date" type="glide_date"/>
         <element label="Delivery location" mandatory="true" max_length="32" name="delivery_location" reference="cmn_location" type="reference"/>
         <element label="Is fragile" max_length="40" name="is_fragile" type="boolean"/>
-        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" display="true" label="Number" max_length="40" name="number" type="string"/>
         <element label="Pickup Date" mandatory="true" max_length="40" name="pickup_date" type="glide_date"/>
         <element label="Pickup location" mandatory="true" max_length="32" name="pickup_location" reference="cmn_location" type="reference"/>
         <element label="Shipment Owner" mandatory="true" max_length="32" name="shipment_owner" reference="sys_user" reference_qual="roles=x_286313_beyondmov.shipper^EQ" reference_qual_condition="roles=x_286313_beyondmov.shipper^EQ" type="reference"/>
