@@ -18,6 +18,7 @@
         <element label="Pickup Date" mandatory="true" max_length="40" name="pickup_date" type="glide_date"/>
         <element label="Pickup location" mandatory="true" max_length="32" name="pickup_location" reference="cmn_location" type="reference"/>
         <element label="Shipment Owner" mandatory="true" max_length="32" name="shipment_owner" reference="sys_user" reference_qual="roles=x_286313_beyondmov.shipper^EQ" reference_qual_condition="roles=x_286313_beyondmov.shipper^EQ" type="reference"/>
+        <element label="Tracker" max_length="32" name="tracker" reference="x_286313_beyondmov_shipment_tracker" type="reference"/>
         <element label="Vehicle" max_length="32" name="vehicle" reference="x_286313_beyondmov_vehicle" type="reference"/>
         <index name="index">
             <element name="carrier"/>
@@ -29,15 +30,18 @@
             <element name="pickup_location"/>
         </index>
         <index name="index4">
-            <element name="broker"/>
+            <element name="tracker"/>
         </index>
         <index name="index5">
-            <element name="delivery_location"/>
+            <element name="broker"/>
         </index>
         <index name="index6">
-            <element name="shipment_owner"/>
+            <element name="delivery_location"/>
         </index>
         <index name="index7">
+            <element name="shipment_owner"/>
+        </index>
+        <index name="index8">
             <element name="vehicle"/>
         </index>
     </element>
