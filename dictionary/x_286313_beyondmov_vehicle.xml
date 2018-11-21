@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Vehicle" max_length="40" name="x_286313_beyondmov_vehicle" type="collection">
+        <element label="Has climate control" max_length="40" name="has_climate_control" type="boolean"/>
+        <element label="Manufacturer" mandatory="true" max_length="256" name="manufacturer" type="string"/>
+        <element label="Max capacity in ltrs" mandatory="true" max_length="40" name="max_capacity_in_ltrs" type="integer"/>
+        <element label="Max tonnage" mandatory="true" max_length="40" name="max_tonnage" type="integer"/>
+        <element label="Model" mandatory="true" max_length="256" name="model" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Owner" mandatory="true" max_length="32" name="owner" reference="sys_user" reference_qual="roles=x_286313_beyondmov.carrier^EQ" reference_qual_condition="roles=x_286313_beyondmov.carrier^EQ" type="reference"/>
+        <element choice="1" label="State" mandatory="true" max_length="40" name="state" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Ready" sequence="5" value="Ready"/>
+                <element inactive_on_update="false" label="Under Repair" sequence="10" value="Under Repair"/>
+                <element inactive_on_update="false" label="Retired" sequence="15" value="Retired"/>
+            </choice>
+        </element>
+        <element choice="1" label="Type" mandatory="true" max_length="40" name="type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Mini Van" sequence="5" value="Mini Van"/>
+                <element inactive_on_update="false" label="Van" sequence="10" value="Van"/>
+                <element inactive_on_update="false" label="Truck" sequence="15" value="Truck"/>
+            </choice>
+        </element>
+        <index name="index">
+            <element name="owner"/>
+        </index>
+    </element>
+</database>
