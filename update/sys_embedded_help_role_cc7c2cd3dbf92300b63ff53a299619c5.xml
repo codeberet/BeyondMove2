@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>1000</order>
+        <role display_value="x_286313_beyondmov.shipper" name="x_286313_beyondmov.shipper">085ce8d3dbf92300b63ff53a299619fd</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-11-21 00:00:27</sys_created_on>
+        <sys_id>cc7c2cd3dbf92300b63ff53a299619c5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>085ce8d3dbf92300b63ff53a299619fd</sys_name>
+        <sys_package display_value="BeyondMove" source="x_286313_beyondmov">7c1ce49bdb792300b63ff53a299619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BeyondMove">7c1ce49bdb792300b63ff53a299619b4</sys_scope>
+        <sys_update_name>sys_embedded_help_role_cc7c2cd3dbf92300b63ff53a299619c5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-11-21 00:00:27</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>
