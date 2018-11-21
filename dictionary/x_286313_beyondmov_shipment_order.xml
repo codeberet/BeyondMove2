@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Shipment Order" max_length="40" name="x_286313_beyondmov_shipment_order" type="collection">
+        <element label="Broker" max_length="32" name="broker" reference="sys_user" reference_qual="roles=x_286313_beyondmov.broker^EQ" reference_qual_condition="roles=x_286313_beyondmov.broker^EQ" type="reference"/>
+        <element choice="1" label="Cargo size" mandatory="true" max_length="40" name="cargo_size" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Small" sequence="5" value="Small"/>
+                <element inactive_on_update="false" label="Medium" sequence="10" value="Medium"/>
+                <element inactive_on_update="false" label="Large" sequence="15" value="Large"/>
+            </choice>
+        </element>
+        <element label="Carrier" max_length="32" name="carrier" reference="sys_user" reference_qual="roles=x_286313_beyondmov.carrier^EQ" reference_qual_condition="roles=x_286313_beyondmov.carrier^EQ" type="reference"/>
+        <element label="Climate control needed" max_length="40" name="climate_control_needed" type="boolean"/>
+        <element label="Consignee" mandatory="true" max_length="32" name="consignee" reference="sys_user" reference_qual="roles=x_286313_beyondmov.consignee^EQ" reference_qual_condition="roles=x_286313_beyondmov.consignee^EQ" type="reference"/>
+        <element label="Delivery Date" mandatory="true" max_length="40" name="delivery_date" type="glide_date"/>
+        <element label="Delivery location" mandatory="true" max_length="32" name="delivery_location" reference="cmn_location" type="reference"/>
+        <element label="Is fragile" max_length="40" name="is_fragile" type="boolean"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Pickup Date" mandatory="true" max_length="40" name="pickup_date" type="glide_date"/>
+        <element label="Pickup location" mandatory="true" max_length="32" name="pickup_location" reference="cmn_location" type="reference"/>
+        <element label="Shipment Owner" mandatory="true" max_length="32" name="shipment_owner" reference="sys_user" reference_qual="roles=x_286313_beyondmov.shipper^EQ" reference_qual_condition="roles=x_286313_beyondmov.shipper^EQ" type="reference"/>
+        <element label="Vehicle" max_length="32" name="vehicle" reference="x_286313_beyondmov_vehicle" type="reference"/>
+        <index name="index">
+            <element name="carrier"/>
+        </index>
+        <index name="index2">
+            <element name="consignee"/>
+        </index>
+        <index name="index3">
+            <element name="pickup_location"/>
+        </index>
+        <index name="index4">
+            <element name="broker"/>
+        </index>
+        <index name="index5">
+            <element name="delivery_location"/>
+        </index>
+        <index name="index6">
+            <element name="shipment_owner"/>
+        </index>
+        <index name="index7">
+            <element name="vehicle"/>
+        </index>
+    </element>
+</database>
