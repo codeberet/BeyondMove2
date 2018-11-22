@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="VehicleToTracker" max_length="40" name="x_286313_beyondmov_vehicletotracker" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" display="true" label="Number" max_length="40" name="number" type="string"/>
+        <element choice="1" label="state" mandatory="true" max_length="40" name="state" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Active" sequence="5" value="Active"/>
+                <element inactive_on_update="false" label="InActive" sequence="10" value="InActive"/>
+            </choice>
+        </element>
+        <element label="Tracker" mandatory="true" max_length="32" name="tracker" reference="x_286313_beyondmov_vehicletotracker" type="reference"/>
+        <element label="Vehicle" mandatory="true" max_length="32" name="vehicle" reference="x_286313_beyondmov_vehicle" type="reference"/>
+        <index name="index">
+            <element name="tracker"/>
+        </index>
+        <index name="index2">
+            <element name="vehicle"/>
+        </index>
+    </element>
+</database>
