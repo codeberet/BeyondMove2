@@ -4,24 +4,24 @@
         <css/>
         <draft>false</draft>
         <dynamic_title_structure/>
-        <id>bmindex</id>
+        <id>shipperportal</id>
         <internal>false</internal>
         <public>false</public>
         <roles/>
-        <short_description>Home page for beyond move service portal</short_description>
+        <short_description>Portal page for shippers</short_description>
         <sys_class_name>sp_page</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-11-22 00:04:55</sys_created_on>
         <sys_id>97d6fda7dbf56300b63ff53a29961930</sys_id>
-        <sys_mod_count>0</sys_mod_count>
-        <sys_name>bmindex</sys_name>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>shipperportal</sys_name>
         <sys_package display_value="BeyondMove" source="x_286313_beyondmov">7c1ce49bdb792300b63ff53a299619b4</sys_package>
         <sys_policy/>
         <sys_scope display_value="BeyondMove">7c1ce49bdb792300b63ff53a299619b4</sys_scope>
         <sys_update_name>sp_page_97d6fda7dbf56300b63ff53a29961930</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-11-22 00:04:55</sys_updated_on>
-        <title>BeyonMoveIndex</title>
+        <sys_updated_on>2018-11-23 03:19:44</sys_updated_on>
+        <title>ShipperPortal</title>
     </sp_page>
     <sys_translated_text action="delete_multiple" query="documentkey=97d6fda7dbf56300b63ff53a29961930"/>
 </record_update>

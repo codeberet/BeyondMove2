@@ -3,7 +3,7 @@
         <class_name/>
         <order>1</order>
         <sp_column/>
-        <sp_container display_value="NewShipmentOrder - Container 1">ac305667db396300b63ff53a2996198d</sp_container>
+        <sp_container display_value="ShipperMapView - Container 1">ac305667db396300b63ff53a2996198d</sp_container>
         <sys_class_name>sp_row</sys_class_name>
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2018-11-22 01:54:54</sys_created_on>

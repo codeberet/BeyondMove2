@@ -16,7 +16,7 @@
         <short_description>New shipment order</short_description>
         <size>md</size>
         <sp_column display_value="1">537cce6fdbf56300b63ff53a299619a4</sp_column>
-        <sp_page display_value="newshipmentorder">6eef4667db396300b63ff53a29961988</sp_page>
+        <sp_page display_value="shippermapview">6eef4667db396300b63ff53a29961988</sp_page>
         <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
         <sys_class_name>sp_instance_link</sys_class_name>
         <sys_created_by>admin</sys_created_by>

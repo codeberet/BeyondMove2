@@ -6,36 +6,36 @@
         <content_page/>
         <device_type/>
         <filter/>
-        <hint/>
+        <hint>Show the orders that are being handled by the carrier in a map view</hint>
         <homepage/>
         <image/>
-        <link_type>LIST</link_type>
-        <map_page/>
-        <mobile_title>Shipment Orders</mobile_title>
+        <link_type>MAP</link_type>
+        <map_page display_value="x_286313_beyondmov_shippersmappage">6b6de3bbdb35a300b63ff53a299619ad</map_page>
+        <mobile_title>Orders- Carriers Mapview</mobile_title>
         <mobile_view_name>Mobile</mobile_view_name>
-        <name>x_286313_beyondmov_shipment_order</name>
-        <order>50</order>
+        <name/>
+        <order>105</order>
         <override_menu_roles>false</override_menu_roles>
         <query/>
         <report/>
-        <roles>x_286313_beyondmov.shipper,x_286313_beyondmov.broker,x_286313_beyondmov.carrier</roles>
+        <roles>x_286313_beyondmov.admin,x_286313_beyondmov.carrier</roles>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2018-11-21 00:19:57</sys_created_on>
+        <sys_created_on>2018-11-23 04:10:55</sys_created_on>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
-        <sys_id>f1e0f8d7dbf92300b63ff53a29961986</sys_id>
-        <sys_mod_count>2</sys_mod_count>
-        <sys_name>Shipment Orders</sys_name>
+        <sys_id>efa87f73db75a300b63ff53a29961993</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Orders- Carriers Mapview</sys_name>
         <sys_overrides/>
         <sys_package display_value="BeyondMove" source="x_286313_beyondmov">7c1ce49bdb792300b63ff53a299619b4</sys_package>
         <sys_policy/>
         <sys_scope display_value="BeyondMove">7c1ce49bdb792300b63ff53a299619b4</sys_scope>
-        <sys_update_name>sys_app_module_f1e0f8d7dbf92300b63ff53a29961986</sys_update_name>
+        <sys_update_name>sys_app_module_efa87f73db75a300b63ff53a29961993</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-11-22 05:21:27</sys_updated_on>
+        <sys_updated_on>2018-11-23 04:10:55</sys_updated_on>
         <timeline_page/>
-        <title>Shipment Orders</title>
+        <title>Orders- Carriers Mapview</title>
         <uncancelable>false</uncancelable>
         <view_name/>
         <window_name/>
