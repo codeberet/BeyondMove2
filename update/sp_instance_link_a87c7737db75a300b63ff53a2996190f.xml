@@ -13,24 +13,24 @@
         <roles/>
         <sc_cat_item/>
         <sc_category/>
-        <short_description>New shipment order</short_description>
+        <short_description>Place your shipment order</short_description>
         <size>md</size>
-        <sp_column display_value="1">537cce6fdbf56300b63ff53a299619a4</sp_column>
-        <sp_page display_value="shippermapview">6eef4667db396300b63ff53a29961988</sp_page>
+        <sp_column display_value="1">9c3c73f3db75a300b63ff53a299619b7</sp_column>
+        <sp_page/>
         <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
         <sys_class_name>sp_instance_link</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2018-11-22 01:41:39</sys_created_on>
-        <sys_id>1c3d422bdbf56300b63ff53a299619b4</sys_id>
-        <sys_mod_count>6</sys_mod_count>
-        <sys_name>Start shipping</sys_name>
+        <sys_created_on>2018-11-23 04:26:13</sys_created_on>
+        <sys_id>a87c7737db75a300b63ff53a2996190f</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Start Shipping</sys_name>
         <sys_package display_value="BeyondMove" source="x_286313_beyondmov">7c1ce49bdb792300b63ff53a299619b4</sys_package>
         <sys_policy/>
         <sys_scope display_value="BeyondMove">7c1ce49bdb792300b63ff53a299619b4</sys_scope>
-        <sys_update_name>sp_instance_link_1c3d422bdbf56300b63ff53a299619b4</sys_update_name>
+        <sys_update_name>sp_instance_link_a87c7737db75a300b63ff53a2996190f</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-11-22 03:46:22</sys_updated_on>
-        <title>Start shipping</title>
+        <sys_updated_on>2018-11-23 04:27:58</sys_updated_on>
+        <title>Start Shipping</title>
         <type>url</type>
         <url>?id=form&amp;table=x_286313_beyondmov_shipment_order&amp;sys_id=-1</url>
         <widget_parameters><![CDATA[{
@@ -40,5 +40,5 @@
 	}
 }]]></widget_parameters>
     </sp_instance_link>
-    <sys_translated_text action="delete_multiple" query="documentkey=1c3d422bdbf56300b63ff53a299619b4"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=a87c7737db75a300b63ff53a2996190f"/>
 </record_update>

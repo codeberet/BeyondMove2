@@ -4,7 +4,7 @@
         <class_name/>
         <color>default</color>
         <css/>
-        <glyph>map-o</glyph>
+        <glyph>map</glyph>
         <id/>
         <kb_article/>
         <kb_category/>
@@ -13,24 +13,24 @@
         <roles/>
         <sc_cat_item/>
         <sc_category/>
-        <short_description>View all your shipments in a map view</short_description>
+        <short_description>Show the orders in a map</short_description>
         <size>md</size>
-        <sp_column display_value="2">1b7cce6fdbf56300b63ff53a299619a5</sp_column>
-        <sp_page display_value="shippermapview">6eef4667db396300b63ff53a29961988</sp_page>
+        <sp_column display_value="2">1c3c73f3db75a300b63ff53a299619b9</sp_column>
+        <sp_page/>
         <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
         <sys_class_name>sp_instance_link</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2018-11-22 01:44:04</sys_created_on>
-        <sys_id>fbbd4ee3db396300b63ff53a2996197c</sys_id>
-        <sys_mod_count>4</sys_mod_count>
-        <sys_name>View my shipments</sys_name>
+        <sys_created_on>2018-11-23 04:28:25</sys_created_on>
+        <sys_id>f4fcb737db75a300b63ff53a299619f3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Shipments Map</sys_name>
         <sys_package display_value="BeyondMove" source="x_286313_beyondmov">7c1ce49bdb792300b63ff53a299619b4</sys_package>
         <sys_policy/>
         <sys_scope display_value="BeyondMove">7c1ce49bdb792300b63ff53a299619b4</sys_scope>
-        <sys_update_name>sp_instance_link_fbbd4ee3db396300b63ff53a2996197c</sys_update_name>
+        <sys_update_name>sp_instance_link_f4fcb737db75a300b63ff53a299619f3</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-11-23 04:16:36</sys_updated_on>
-        <title>View my shipments</title>
+        <sys_updated_on>2018-11-23 04:35:50</sys_updated_on>
+        <title>Shipments Map</title>
         <type>url</type>
         <url>map_page.do?sysparm_name=x_286313_beyondmov_shippersmappage</url>
         <widget_parameters><![CDATA[{
@@ -40,5 +40,5 @@
 	}
 }]]></widget_parameters>
     </sp_instance_link>
-    <sys_translated_text action="delete_multiple" query="documentkey=fbbd4ee3db396300b63ff53a2996197c"/>
+    <sys_translated_text action="delete_multiple" query="documentkey=f4fcb737db75a300b63ff53a299619f3"/>
 </record_update>
