@@ -18,6 +18,19 @@
         <element label="Pickup Date" mandatory="true" max_length="40" name="pickup_date" type="glide_date"/>
         <element label="Pickup location" mandatory="true" max_length="32" name="pickup_location" reference="cmn_location" type="reference"/>
         <element label="Shipment Owner" mandatory="true" max_length="32" name="shipment_owner" reference="sys_user" reference_qual="roles=x_286313_beyondmov.shipper^EQ" reference_qual_condition="roles=x_286313_beyondmov.shipper^EQ" type="reference"/>
+        <element choice="1" label="State" mandatory="true" max_length="40" name="state" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Created" sequence="5" value="Created"/>
+                <element inactive_on_update="false" label="Broker Assigned" sequence="10" value="Broker Assigned"/>
+                <element inactive_on_update="false" label="Carrier Unassigned" sequence="15" value="Carrier Unassigned"/>
+                <element inactive_on_update="false" label="Carrier Assigned" sequence="20" value="Carrier Assigned"/>
+                <element inactive_on_update="false" label="Cargo in-transit" sequence="25" value="Cargo in-transit"/>
+                <element inactive_on_update="false" label="Delivered" sequence="30" value="Delivered"/>
+                <element inactive_on_update="false" label="Delivery-Fail" sequence="35" value="Delivery-Fail"/>
+                <element inactive_on_update="false" label="CancelledByShipper" sequence="40" value="CancelledByShipper"/>
+                <element inactive_on_update="false" label="Closed" sequence="50" value="Closed"/>
+            </choice>
+        </element>
         <element label="Vehicle" max_length="32" name="vehicle" reference="x_286313_beyondmov_vehicle" type="reference"/>
         <index name="index">
             <element name="carrier"/>
