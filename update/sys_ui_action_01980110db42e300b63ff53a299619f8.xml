@@ -5,7 +5,7 @@
         <client>false</client>
         <client_script_v2/>
         <comments>Request quotations for this order  from the carriers registered</comments>
-        <condition>current.state == "Carrier Unassigned" &amp;&amp; gs.hasRole("x_286313_beyondmov.broker") &amp;&amp; current.broker==gs.getUserId()</condition>
+        <condition>current.state == "Broker Assigned" &amp;&amp; gs.hasRole("x_286313_beyondmov.broker") &amp;&amp; current.broker==gs.getUserID()</condition>
         <form_action>true</form_action>
         <form_button>true</form_button>
         <form_button_v2>false</form_button_v2>
@@ -26,27 +26,41 @@
         <name>Request Carrier Quotes</name>
         <onclick/>
         <order>100</order>
-        <script><![CDATA[g_form.addInfoMessage("Quotes getting requested from all carriers");
+        <script><![CDATA[//g_form.addInfoMessage("Quotes getting requested from all carriers");
+gs.addInfoMessage("Quotes getting requested from all carriers");
 
-//get all the carriers registered
-var target = new GlideRecord('sys_user');
-target.addQuery('role','x_286313_beyondmov_carrier');
-target.query(); // Issue the query to the database to get relevant records 
+var carrier_role_q = new GlideRecord('sys_user_role');
+carrier_role_q.addQuery('name', "x_286313_beyondmov.carrier");
+carrier_role_q.query();
 
 var count = 0;
 
-while (target.next()) { 
-	//create a carrier quote for each of the carrier
-	var quote = new GlideRecord("x_286313_beyondmov_carrier_quote");
-	quote.carrier = current.carrier;
-	quote.shipment_order = current.number;
-	quote.state = 'Quote Pending At Carrier';
-    var sysID = quote.insert();
-	gs.info("Created a quote for carrier "+ current.carrier);
-	count++;
+while(carrier_role_q.next()){
+	
+    var users_with_carrier_role = new GlideRecord('sys_user_has_role');
+	users_with_carrier_role.addQuery('role', carrier_role_q.sys_id);
+	users_with_carrier_role.query();
+	
+	while(users_with_carrier_role.next()){
+		//create a carrier quote for each of the carrier
+		var quote = new GlideRecord("x_286313_beyondmov_carrier_quote");
+		quote.carrier = users_with_carrier_role.user.sysID;
+		quote.shipment_order = current.sysID;
+		quote.state = 'Quote Pending At Carrier';
+		var sysID = quote.insert();
+		gs.info("Created a quote for carrier "+ current.carrier);
+		count++;
+	}
 }
 
-gs.info("Sent quotes to "+ count+ " carriers");
+gs.info("Sent "+ count+ " quotes to carriers");
+gs.addInfoMessage("Sent "+ count+ " quotes to carriers");
+
+//change the order state to Carrier Unassigned
+current.state = 'Carrier Unassigned';
+var mySysId = current.update();
+
+
 ]]></script>
         <show_insert>false</show_insert>
         <show_multiple_update>false</show_multiple_update>
@@ -58,7 +72,7 @@ gs.info("Sent quotes to "+ count+ " carriers");
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>01980110db42e300b63ff53a299619f8</sys_id>
-        <sys_mod_count>3</sys_mod_count>
+        <sys_mod_count>14</sys_mod_count>
         <sys_name>Request Carrier Quotes</sys_name>
         <sys_overrides/>
         <sys_package display_value="BeyondMove" source="x_286313_beyondmov">7c1ce49bdb792300b63ff53a299619b4</sys_package>
@@ -66,7 +80,7 @@ gs.info("Sent quotes to "+ count+ " carriers");
         <sys_scope display_value="BeyondMove">7c1ce49bdb792300b63ff53a299619b4</sys_scope>
         <sys_update_name>sys_ui_action_01980110db42e300b63ff53a299619f8</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-11-25 08:05:26</sys_updated_on>
+        <sys_updated_on>2018-11-25 12:10:20</sys_updated_on>
         <table>x_286313_beyondmov_shipment_order</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>
