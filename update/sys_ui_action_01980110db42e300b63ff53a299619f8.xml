@@ -44,8 +44,10 @@ while(carrier_role_q.next()){
 	while(users_with_carrier_role.next()){
 		//create a carrier quote for each of the carrier
 		var quote = new GlideRecord("x_286313_beyondmov_carrier_quote");
-		quote.carrier = users_with_carrier_role.user.sysID;
-		quote.shipment_order = current.sysID;
+		quote.carrier = users_with_carrier_role.user.sys_id;
+		gs.info("carrier for this quote is:" + quote.carrier);
+		quote.shipment_order = current.sys_id;
+		gs.info("shipment order for this quote is:" + quote.shipment_order);
 		quote.state = 'Quote Pending At Carrier';
 		var sysID = quote.insert();
 		gs.info("Created a quote for carrier "+ current.carrier);
@@ -72,7 +74,7 @@ var mySysId = current.update();
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>01980110db42e300b63ff53a299619f8</sys_id>
-        <sys_mod_count>14</sys_mod_count>
+        <sys_mod_count>16</sys_mod_count>
         <sys_name>Request Carrier Quotes</sys_name>
         <sys_overrides/>
         <sys_package display_value="BeyondMove" source="x_286313_beyondmov">7c1ce49bdb792300b63ff53a299619b4</sys_package>
@@ -80,7 +82,7 @@ var mySysId = current.update();
         <sys_scope display_value="BeyondMove">7c1ce49bdb792300b63ff53a299619b4</sys_scope>
         <sys_update_name>sys_ui_action_01980110db42e300b63ff53a299619f8</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-11-25 12:10:20</sys_updated_on>
+        <sys_updated_on>2018-11-27 03:33:36</sys_updated_on>
         <table>x_286313_beyondmov_shipment_order</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>
