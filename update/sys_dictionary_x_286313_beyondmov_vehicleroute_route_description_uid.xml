@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update>
-    <sys_dictionary action="INSERT_OR_UPDATE" element="number" table="x_286313_beyondmov_tracker_hearbeat">
+    <sys_dictionary action="INSERT_OR_UPDATE" element="route_description_uid" table="x_286313_beyondmov_vehicleroute">
         <active>true</active>
         <array>false</array>
         <array_denormalized>false</array_denormalized>
-        <attributes>ignore_filter_on_new=true</attributes>
+        <attributes/>
         <audit>false</audit>
         <calculation><![CDATA[(function calculatedFieldValue(current) {
 
@@ -14,10 +14,10 @@
         <choice/>
         <choice_field/>
         <choice_table/>
-        <column_label>Number</column_label>
+        <column_label>Route description</column_label>
         <comments/>
         <create_roles/>
-        <default_value>javascript:global.getNextObjNumberPadded();</default_value>
+        <default_value/>
         <defaultsort/>
         <delete_roles/>
         <dependent/>
@@ -27,20 +27,20 @@
         <dynamic_creation_script/>
         <dynamic_default_value/>
         <dynamic_ref_qual/>
-        <element>number</element>
+        <element>route_description_uid</element>
         <element_reference>false</element_reference>
         <foreign_database/>
         <function_definition/>
         <function_field>false</function_field>
-        <internal_type display_value="String">string</internal_type>
-        <mandatory>false</mandatory>
-        <max_length>40</max_length>
-        <name>x_286313_beyondmov_tracker_hearbeat</name>
+        <internal_type display_value="Reference">reference</internal_type>
+        <mandatory>true</mandatory>
+        <max_length>256</max_length>
+        <name>x_286313_beyondmov_vehicleroute</name>
         <next_element/>
         <primary>false</primary>
         <read_only>false</read_only>
         <read_roles/>
-        <reference/>
+        <reference display_value="" name="x_286313_beyondmov_vehicle_route_desc">x_286313_beyondmov_vehicle_route_desc</reference>
         <reference_cascade_rule/>
         <reference_floats>false</reference_floats>
         <reference_key/>
@@ -52,16 +52,16 @@
         <staged>false</staged>
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>admin</sys_created_by>
-        <sys_created_on>2018-11-22 03:59:10</sys_created_on>
-        <sys_id>baacea67db796300b63ff53a29961928</sys_id>
+        <sys_created_on>2018-11-28 09:38:48</sys_created_on>
+        <sys_id>91c3f221db462300b63ff53a29961991</sys_id>
         <sys_mod_count>2</sys_mod_count>
-        <sys_name>Number</sys_name>
+        <sys_name>Route description</sys_name>
         <sys_package display_value="BeyondMove" source="x_286313_beyondmov">7c1ce49bdb792300b63ff53a299619b4</sys_package>
         <sys_policy/>
         <sys_scope display_value="BeyondMove">7c1ce49bdb792300b63ff53a299619b4</sys_scope>
-        <sys_update_name>sys_dictionary_x_286313_beyondmov_tracker_hearbeat_number</sys_update_name>
+        <sys_update_name>sys_dictionary_x_286313_beyondmov_vehicleroute_route_description_uid</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-11-28 10:45:00</sys_updated_on>
+        <sys_updated_on>2018-11-28 09:52:24</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

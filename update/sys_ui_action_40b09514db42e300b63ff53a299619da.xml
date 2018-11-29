@@ -32,6 +32,7 @@ gs.info("Finding all active tracker records for vehicle")
 var target = new GlideRecord("x_286313_beyondmov_vehicletotracker");
 target.addQuery('state','Active');
 target.addQuery('vehicle',current.sys_id);
+target.query();
 
 var count =0;
 while (target.next()) { 
@@ -43,20 +44,48 @@ while (target.next()) {
 
 gs.info("Marked "+ count +" vehicle to tracker records as Inactive");
 
+//create a vehicle to tracker record with state = active 
+var newVehicleToTracker = new GlideRecord("x_286313_beyondmov_vehicletotracker");
+newVehicleToTracker.vehicle = current.sys_id;
+newVehicleToTracker.state = "Active";
+var trackerId = gs.generateGUID();
+newVehicleToTracker.tracker = trackerId;
+newVehicleToTracker.insert();
+
+
+//get route associated to the vehicle
+var assignedRouteSysId = current.route_assigned;
+//gs.info(gs.getMessage("Route assigned to vehicle {0} is {1}",[current.sys_id,assignedRouteSysId]));
+
+
+//get the route desc uid associated 
+var routeDescRecord = new GlideRecord("x_286313_beyondmov_vehicle_route_desc");
+routeDescRecord.addQuery("sys_id",assignedRouteSysId);
+routeDescRecord.query();
+
+routeDescRecord.next();
+var routeDescUID = routeDescRecord.route_description;
+gs.info(gs.getMessage("Route assigned to vehicle {0} is {1}",[current.sys_id,routeDescUID]));
+
+
+var routeLocations = new GlideRecord("x_286313_beyondmov_vehicleroute");
+routeLocations.addQuery("route_description_uid",assignedRouteSysId);
+routeLocations.addQuery("index_in_route",1);
+routeLocations.query();
+
+routeLocations.next();
+var startLocation = routeLocations.location;
+gs.info(gs.getMessage("Start location for route {0} is {1}",[assignedRouteSysId,startLocation]));
+
 //create a tracker record
 var trackerRecord = new GlideRecord('x_286313_beyondmov_tracker_hearbeat');
 trackerRecord.tracker_timestamp = new GlideDateTime();
-trackerRecord.latlong = "37.3541,121.9552";
+trackerRecord.latlong = startLocation;
+trackerRecord.tracker_uid = trackerId;
 var trackerSysId = trackerRecord.insert();
 
 gs.info("Created  new tracker record for vehicle with sysid:" + trackerSysId);
 
-//create a vehicle to tracker record with state = active 
-var newVehicleToTracker = new GlideRecord("x_286313_beyondmov_vehicletotracker");
-newVehicleToTracker.Vehicle = current.SysID;
-newVehicleToTraker.state = "Active";
-newVehicleToTraker.tracker = trackerSysId;
-newVehicleToTracker.insert();
 
 
 ]]></script>
@@ -70,7 +99,7 @@ newVehicleToTracker.insert();
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>40b09514db42e300b63ff53a299619da</sys_id>
-        <sys_mod_count>5</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>Start Tracking</sys_name>
         <sys_overrides/>
         <sys_package display_value="BeyondMove" source="x_286313_beyondmov">7c1ce49bdb792300b63ff53a299619b4</sys_package>
@@ -78,7 +107,7 @@ newVehicleToTracker.insert();
         <sys_scope display_value="BeyondMove">7c1ce49bdb792300b63ff53a299619b4</sys_scope>
         <sys_update_name>sys_ui_action_40b09514db42e300b63ff53a299619da</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2018-11-27 05:02:23</sys_updated_on>
+        <sys_updated_on>2018-11-29 00:09:06</sys_updated_on>
         <table>x_286313_beyondmov_vehicle</table>
         <ui11_compatible>true</ui11_compatible>
         <ui16_compatible>false</ui16_compatible>

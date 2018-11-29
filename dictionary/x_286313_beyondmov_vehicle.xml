@@ -7,6 +7,7 @@
         <element label="Model" mandatory="true" max_length="256" name="model" type="string"/>
         <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
         <element label="Owner" mandatory="true" max_length="32" name="owner" reference="sys_user" reference_qual="roles=x_286313_beyondmov.carrier^EQ" reference_qual_condition="roles=x_286313_beyondmov.carrier^EQ" type="reference"/>
+        <element label="Route Assigned" max_length="32" name="route_assigned" reference="x_286313_beyondmov_vehicle_route_desc" type="reference"/>
         <element choice="1" label="State" mandatory="true" max_length="40" name="state" type="choice">
             <choice>
                 <element inactive_on_update="false" label="Ready" sequence="5" value="Ready"/>
@@ -23,6 +24,9 @@
         </element>
         <index name="index">
             <element name="owner"/>
+        </index>
+        <index name="index2">
+            <element name="route_assigned"/>
         </index>
     </element>
 </database>

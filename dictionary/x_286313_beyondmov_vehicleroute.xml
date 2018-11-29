@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="VehicleRoute" max_length="40" name="x_286313_beyondmov_vehicleroute" type="collection">
+        <element label="Index in route" mandatory="true" max_length="256" name="index_in_route" type="integer"/>
+        <element label="location" mandatory="true" max_length="256" name="location" type="string"/>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element label="Route description" mandatory="true" max_length="256" name="route_description_uid" reference="x_286313_beyondmov_vehicle_route_desc" type="reference"/>
+    </element>
+</database>

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition><![CDATA[// Only run this Scheduled Job if there are trackers associated with vehicles and the association is valid 
+var ga = new GlideAggregate('x_286313_beyondmov_vehicletotracker');
+ga.addAggregate('COUNT');
+ga.addQuery('state', 'Active');
+ga.query();
+ga.next();
+ga.getAggregate('COUNT') !== '0']]></condition>
+        <conditional>true</conditional>
+        <name>BeyondMoveVehicleMovementSimulation</name>
+        <run_as display_value="System Administrator">6816f79cc0a8016401c5a33be04be441</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period>1970-01-01 00:01:00</run_period>
+        <run_start>2018-11-28 17:04:49</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>periodically</run_type>
+        <script><![CDATA[//get the active vehicle tracker records
+
+var vehicleToTracker = new GlideRecord('x_286313_beyondmov_vehicletotracker');
+vehicleToTracker.addQuery('state','Active');
+vehicleToTracker.query();
+
+var scheduledRunId = gs.generateGUID();
+var vehicleCount = 0;
+
+while(vehicleToTracker.next()){
+	vehicleCount++;
+	gs.info(scheduledRunId +"-- "+"Simulating movements for vehicle" + vehicleToTracker.vehicle.number);
+
+
+	var trackerGUID = vehicleToTracker.tracker;
+	
+	gs.info(scheduledRunId +"-- "+"Tracker GUID: " + trackerGUID);
+	
+	var trackerRecordCountQuery = new GlideAggregate('x_286313_beyondmov_tracker_hearbeat');
+    trackerRecordCountQuery.addAggregate('COUNT');
+    trackerRecordCountQuery.addQuery('tracker_uid', trackerGUID);
+    trackerRecordCountQuery.query();
+	trackerRecordCountQuery.next();
+	var trackerRecordCount = trackerRecordCountQuery.getAggregate('COUNT');
+	
+	gs.info(scheduledRunId +"-- "+"Found  " + trackerRecordCount + " tracker records for "+ trackerGUID);
+	
+	var locationsInRouteQuery = new GlideRecord('x_286313_beyondmov_vehicleroute');
+	locationsInRouteQuery.orderBy('index_in_route');
+	locationsInRouteQuery.addQuery('route_description_uid',vehicleToTracker.vehicle.route_assigned);
+	locationsInRouteQuery.query();
+	
+	var count = trackerRecordCount;
+	var locationsCoveredCount = 0;
+	while (locationsInRouteQuery.next()){
+		if (count >0){
+		  gs.info(scheduledRunId +"-- "+"Skipping location "+ locationsInRouteQuery.location + " as tracker record exists for that location");
+		  count--;
+		  locationsCoveredCount++;
+		} else {
+			break;
+		}
+	}	
+	if(locationsCoveredCount != trackerRecordCount){
+	
+		//create a tracker heartbeat record
+		var trackerHeartBeat = new GlideRecord('x_286313_beyondmov_tracker_hearbeat');
+		trackerHeartBeat.tracker_uid = trackerGUID;
+		trackerHeartBeat.tracker_timestamp = new GlideDateTime();
+		trackerHeartBeat.latlong = locationsInRouteQuery.location;
+		var trackerSysId = trackerHeartBeat.insert();
+	
+		gs.info(scheduledRunId +"-- "+"Next location for " + vehicleToTracker.vehicle.number + " is "+ trackerHeartBeat.latlong);
+	
+		gs.info(scheduledRunId +"-- "+"Simulated the movement for vehicle: " + vehicleToTracker.vehicle.number);
+	} else{
+		gs.info(scheduledRunId +"-- "+"All locations covered for vehicle: " + vehicleToTracker.vehicle.number + " not moving it further");
+	}
+	
+}
+]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2018-11-28 17:53:21</sys_created_on>
+        <sys_id>7d0a5cbddb0a2300b63ff53a2996190d</sys_id>
+        <sys_mod_count>23</sys_mod_count>
+        <sys_name>BeyondMoveVehicleMovementSimulation</sys_name>
+        <sys_package display_value="BeyondMove" source="x_286313_beyondmov">7c1ce49bdb792300b63ff53a299619b4</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="BeyondMove">7c1ce49bdb792300b63ff53a299619b4</sys_scope>
+        <sys_update_name>sysauto_script_7d0a5cbddb0a2300b63ff53a2996190d</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-11-29 00:26:57</sys_updated_on>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

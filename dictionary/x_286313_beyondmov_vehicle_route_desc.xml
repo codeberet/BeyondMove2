@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Vehicle Route Desc" max_length="40" name="x_286313_beyondmov_vehicle_route_desc" type="collection">
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element display="true" label="Route Description" mandatory="true" max_length="1024" name="route_description" type="string"/>
+    </element>
+</database>
